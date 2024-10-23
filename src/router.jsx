@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import { AuthorList, Chapters, Series } from './AuthorList';
+import { AuthorList, Chapters, Character, Info, Series } from './AuthorList';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,17 @@ const router = createBrowserRouter([
             children: [
               {
                 path: ':id',
-                element: <Chapters />,
+                element: <Info/>,
+                children: [
+                  {
+                    path: "chapter",
+                    element: <Chapters />,
+                  },{
+                    path: "character",
+                    element: <Character />,
+                  }
+                ]
+                
               },
             ],
           },
